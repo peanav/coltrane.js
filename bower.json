@@ -1,0 +1,17 @@
+{
+  "name": "yagl.js",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "directory": "lib",
+  "dependencies": {
+    "d3": "latest",
+    "lodash": "latest"
+  },
+  "devDependencies": {
+    "jasmine": "latest"
+  }
+}
