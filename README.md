@@ -1,3 +1,3 @@
-yagl.js
+Coltrane.js
 =======
-yet another graphing library
+a svg graphing library
