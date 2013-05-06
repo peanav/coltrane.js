@@ -1,10 +1,10 @@
 describe "Coltrane.data", ->
   data = [
-    { 'Houston'  : '$24,328,538'}
-    { 'Oakland'  : '$68,577,000'}
-    { 'Seattle'  : '$84,295,952'}
-    { 'Texas'    : '$127,197,575'}
-    { 'LA Angels': '$142,165,250'}
+    { 'Houston'  : '$24,000,000'}
+    { 'Texas'    : '$127,000,000'}
+    { 'Oakland'  : '$68,000,000'}
+    { 'LA Angels': '$142,000,000'}
+    { 'Seattle'  : '$84,000,000'}
   ]
 
   describe "Coltrane.data.parseValue", ->
@@ -23,8 +23,22 @@ describe "Coltrane.data", ->
     it "should parse currency", ->
       expect(Coltrane.data.parseValue "$10").toEqual 10
 
-  describe "Coltrane.data.isPercentage", ->
-    it "should know if a string is a percentage or not", ->
-      expect(Coltrane.data.isPercentage "10").toBe false
-      expect(Coltrane.data.isPercentage "1%0").toBe false
-      expect(Coltrane.data.isPercentage "10%").toBe true
+  describe "Coltrane.data.calculate", ->
+    results = undefined
+    beforeEach ->
+      results = Coltrane.data.calculate(data)
+
+    it "should return an array the same amout of items", ->
+      expect(results.length).toEqual 5
+
+    it "should sort based on value", ->
+      expected = ['Houston', 'Oakland', 'Seattle', 'Texas', 'LA Angels']
+      results = _.map(results, "label")
+      expect(results).toEqual expected
+
+    #it "should return value and valueLabel", ->
+
+
+    it "should be calculate percentages", ->
+      expect(results[0].percentage).toEqual .054
+      expect(results[4].percentage).toEqual .319
