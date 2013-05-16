@@ -2,7 +2,11 @@
 <html>
   <head>
     <title>Coltrane.js - Bar Chart Examples</title>
-
+    <style>
+      .bar {
+        fill: #498BC4
+      }
+    </style>
   </head>
   <body>
     <div id="barChart">
@@ -11,7 +15,18 @@
     <script src="../components/d3/d3.min.js"></script>
     <script src="../coltrane.js"></script>
     <script>
-      console.log(Coltrane);
+      homerunData = [
+        { 'Justin Upton': 12 },
+        { 'John Buck': 9 },
+        { 'Bryce Harper': 9 },
+        { 'Dexter Fowler': 8 },
+        { 'Anthony Rizzo': 8 },
+        { 'Carlos Beltran': 7 },
+        { 'Yuniesky Betancourt': 7 }
+      ];
+      coltrane.barChart('#barChart', {
+        data: homerunData
+      });
     </script>
   </body>
 </html>
