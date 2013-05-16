@@ -11,6 +11,7 @@ files = [
   JASMINE,
   JASMINE_ADAPTER,
   'components/lodash/lodash.js',
+  'components/d3/d3.js',
   'src/coltrane.js',
   'src/**/*.js',
   'tests/**/*_spec.coffee'

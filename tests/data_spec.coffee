@@ -1,4 +1,4 @@
-describe "Coltrane.data", ->
+describe "coltrane.data", ->
   data = [
     { 'Houston'  : '$24,000,000'}
     { 'Texas'    : '$127,000,000'}
@@ -7,26 +7,26 @@ describe "Coltrane.data", ->
     { 'Seattle'  : '$84,000,000'}
   ]
 
-  describe "Coltrane.data.parseValue", ->
+  describe "coltrane.data.parseValue", ->
     it "should be able to parse a number", ->
-      expect(Coltrane.data.parseValue(10)).toEqual 10
+      expect(coltrane.data.parseValue(10)).toEqual 10
 
     it "should be able to parse a number", ->
-      expect(Coltrane.data.parseValue(10)).toEqual 10
+      expect(coltrane.data.parseValue(10)).toEqual 10
 
     it "should parse a string into a number", ->
-      expect(Coltrane.data.parseValue("10")).toEqual 10
+      expect(coltrane.data.parseValue("10")).toEqual 10
 
     it "should parse percentages", ->
-      expect(Coltrane.data.parseValue "10%").toEqual 10
+      expect(coltrane.data.parseValue "10%").toEqual 10
 
     it "should parse currency", ->
-      expect(Coltrane.data.parseValue "$10").toEqual 10
+      expect(coltrane.data.parseValue "$10").toEqual 10
 
-  describe "Coltrane.data.calculate", ->
+  describe "coltrane.data.calculate", ->
     results = undefined
     beforeEach ->
-      results = Coltrane.data.calculate(data)
+      results = coltrane.data.calculate(data)
 
     it "should return an array the same amout of items", ->
       expect(results.length).toEqual 5
@@ -36,9 +36,12 @@ describe "Coltrane.data", ->
       results = _.map(results, "label")
       expect(results).toEqual expected
 
-    #it "should return value and valueLabel", ->
-
+    it "should return value and valueLabel", ->
+      expected = ['$24,000,000', '$68,000,000', '$84,000,000', '$127,000,000', '$142,000,000']
+      results = _.map(results, "valueLabel")
+      expect(results).toEqual expected
 
     it "should be calculate percentages", ->
-      expect(results[0].percentage).toEqual .054
-      expect(results[4].percentage).toEqual .319
+      expected = [.054, .153, .189, .285, .319]
+      results = _.map(results, "percentage")
+      expect(results).toEqual expected

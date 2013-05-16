@@ -1,3 +1,3 @@
 describe "Coltrane", ->
   it "should have a version number", ->
-    expect(Coltrane.version).not.toBe null
+    expect(coltrane.version).not.toBe null
