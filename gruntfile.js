@@ -11,12 +11,23 @@ module.exports = function(grunt) {
         src: ['src/coltrane.js', 'src/data.js', 'src/barChart.js'],
       dest: 'coltrane.js'
       }
+    },
+    watch: {
+      scripts: {
+        files: ['src/*.js'],
+        tasks: ['build'],
+        options: {
+          nospawn: false,
+        }
+      }
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
 
-  // Default task(s).
-  grunt.registerTask('default', ['concat']);
+  // Tasks
+  grunt.registerTask('default', []);
+  grunt.registerTask('build', ['concat']);
 
 };

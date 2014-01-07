@@ -12,7 +12,7 @@ coltrane.data = {
         value: val,
         percentage: +(val / total).toFixed(3)
       };
-    }).sortBy('value').value();
+    }).value();
   },
 
   parseValue: function(value) {

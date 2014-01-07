@@ -3,6 +3,10 @@
   <head>
     <title>Coltrane.js - Bar Chart Examples</title>
     <style>
+      #barChart {
+        height: 400px;
+        width: 400px;
+      }
       .bar {
         fill: #498BC4
       }
@@ -15,18 +19,22 @@
     <script src="../components/d3/d3.min.js"></script>
     <script src="../coltrane.js"></script>
     <script>
-      homerunData = [
-        { 'Justin Upton': 12 },
-        { 'John Buck': 9 },
-        { 'Bryce Harper': 9 },
-        { 'Dexter Fowler': 8 },
-        { 'Anthony Rizzo': 8 },
-        { 'Carlos Beltran': 7 },
-        { 'Yuniesky Betancourt': 7 }
+
+      var homerunData = [
+        { 'Pedro Alvarez': 36 },
+        { 'Paul Goldschmidt': 36 },
+        { 'Jay Bruce': 30 },
+        { 'Hunter Pence': 27 },
+        { 'Justin Upton': 27 },
+        { 'Domonic Brown': 27 },
+        { 'Ryan Zimmerman': 26 },
+        { 'Carlos Gonzalez': 26 }
       ];
-      coltrane.barChart('#barChart', {
+
+      var bar = coltrane.barChart('#barChart', {
         data: homerunData
       });
+
     </script>
   </body>
 </html>

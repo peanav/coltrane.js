@@ -8,15 +8,35 @@ describe "Coltrane.barChart", ->
   ]
 
   it "should take in an element", ->
-    ele = document.createElement 'p'
+    ele = $('<p>')[0]
     bar = coltrane.barChart ele, { data: data}
 
     expect(bar.rootElement).toBe ele
     expect(bar.querySelector).toBe undefined
 
   it "should take in a query selector", ->
-    ele = document.write '<div class="test_bar_2"></div>'
-    bar = coltrane.barChart '.test_bar_2', { data: data}
+    ele = document.write '<div class="test_bar_1"></div>'
+    bar = coltrane.barChart '.test_bar_1', { data: data}
 
-    expect(bar.rootElement.className).toBe 'test_bar_2'
-    expect(bar.querySelector).toBe '.test_bar_2'
+    expect(bar.rootElement.className).toBe 'test_bar_1'
+    expect(bar.querySelector).toBe '.test_bar_1'
+
+  it "should add an svg inside of the element", ->
+    ele = $ '<div></div>'
+    bar = coltrane.barChart ele[0], { data: data}
+    expect(ele.children()[0].tagName).toBe 'svg'
+
+  it "should add an svg the same size as the container element", ->
+    ele = $ '<div style="width:300px; height:400px;"></div>'
+    $('body').append ele
+    bar = coltrane.barChart ele[0], { data: data}
+    svg = ele.children(':first')
+    expect(svg.width()).toBe 300
+    expect(svg.height()).toBe 400
+
+  it "should add the correct number of bars", ->
+    ele = $ '<div></div>'
+    bar = coltrane.barChart ele[0], { data: data}
+    expect(ele.find('rect').length).toBe 5
+
+

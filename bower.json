@@ -12,6 +12,7 @@
     "lodash": "latest"
   },
   "devDependencies": {
-    "jasmine": "latest"
+    "jasmine": "latest",
+    "jquery": "latest"
   }
 }
